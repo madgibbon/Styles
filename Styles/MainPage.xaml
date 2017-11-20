@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Styles.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary> <!-- Applies to all buttons with the key set to buttonStyle -->
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="Red"></Setter>
+                <Setter Property="FontSize" Value="Small"></Setter>
+            </Style>
+            <Style TargetType="Label"> <!-- No key so applies to all labels -->
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="Blue"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+            <Style x:Key="baseStyle" TargetType="View">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+            </Style>
+            <Style x:Key="entryStyle" TargetType="Entry" BasedOn="{StaticResource baseStyle}">
+                <Setter Property="TextColor" Value="Green"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="This is label number 1 with an implicit style"></Label>
+            <Label Text="This is label number 2 with an implicit style"></Label>
+            <Entry Style="{StaticResource entryStyle}" Placeholder="This entry uses an inherited style"></Entry>
+            <Button Style="{StaticResource buttonStyle}" Text="Using explicit style" BorderWidth="2" WidthRequest="200"></Button>
+            <Button Text=" Not using explicit style" BorderWidth="2" WidthRequest="200"></Button>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
